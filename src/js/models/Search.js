@@ -9,7 +9,7 @@ export default class Search {
         const key = '1bc7e064113fa0d2bc31d818aa829891';
         try {
             const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${this.query}`);
-            this.getResults = res.data.recipes;
+            this.result = res.data.recipes;
             // console.log(this.getResults);
         } catch (error) {
             alert(error);
@@ -18,5 +18,3 @@ export default class Search {
     
     }
 }
-
-
