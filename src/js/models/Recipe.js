@@ -14,7 +14,7 @@ export default class Recipe {
             this.img = res.data.recipe.image_url;
             this.url = res.data.recipe.source_url;
             this.ingredients = res.data.recipe.ingredients;
-            console.log(res);
+            // console.log(res);
         } catch (error) {
             console.log(error);
             alert('Something went wrong :(');
@@ -90,6 +90,6 @@ export default class Recipe {
             return objIng;
 
         });
-        this.servings = newServings;
+        this.ingredients = newIngredients;
     }
 }

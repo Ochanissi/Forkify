@@ -26,11 +26,9 @@ const controlSearch = async () => {
         searchView.clearInput();
         searchView.clearResults();
         renderLoader(elements.searchRes);
-        
         try {
             // 4. Search for recipes
             await state.search.getResults();
-    
             // 5. Render results on UI
             clearLoader();
             searchView.renderResults(state.search.result);
@@ -64,7 +62,7 @@ elements.searchResPages.addEventListener('click', e => {
 const controlRecipe = async () => {
     // Get ID from URL
     const id = window.location.hash.replace('#', '');
-    console.log(id);
+    // console.log(id);
 
     if(id) {
         // Prepare the UI for changes
