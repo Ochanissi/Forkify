@@ -5,7 +5,7 @@ import * as recipeView from './views/recipeView';
 import { elements, renderLoader, clearLoader } from './views/base';
 
 // Global state of the app
-// State Object
+// Search Object
 // Current Recipe Object
 // Shopping List Object
 // Liked Recipes
@@ -16,7 +16,7 @@ const state = {};
 const controlSearch = async () => {
     // 1. Get a query from view
     const query = searchView.getInput();
-    console.log(query);
+    // console.log(query);
 
     if (query) {
         // 2. New search object and add to state
@@ -36,8 +36,8 @@ const controlSearch = async () => {
             searchView.renderResults(state.search.result);
             // console.log(state.search.result);
         } catch (err) {
-            alert('Something wron with the search...');
-            clearLoader()
+            alert('Something wrong with the search...');
+            clearLoader();
         }
 
     }
@@ -51,7 +51,6 @@ elements.searchForum.addEventListener('submit', e => {
 
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
-    // console.log(btn);
 
     if(btn) {
         const goToPage = parseInt(btn.dataset.goto, 10);
