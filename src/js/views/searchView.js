@@ -12,6 +12,16 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+export const hightlightSelected = id => {
+    const resultsArr = Array.from(documen.querySelectorAll('.results__link'));
+
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    });
+
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
+
 /*
 // 'Pasta with tomato and spinach'
 acc: 0 / acc + cur.length = 5 / newTitle = ['Pasta']
