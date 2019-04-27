@@ -43,7 +43,7 @@ const controlSearch = async () => {
     }
 }
 
-elements.searchForum.addEventListener('submit', e => {
+elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 
@@ -52,7 +52,7 @@ elements.searchForum.addEventListener('submit', e => {
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
 
-    if(btn) {
+    if (btn) {
         const goToPage = parseInt(btn.dataset.goto, 10);
         searchView.clearResults();
         searchView.renderResults(state.search.result, goToPage);
@@ -66,13 +66,13 @@ const controlRecipe = async () => {
     const id = window.location.hash.replace('#', '');
     // console.log(id);
 
-    if(id) {
+    if (id) {
         // Prepare the UI for changes
         recipeView.clearRecipe();
         renderLoader(elements.recipe);
 
-        // Hightlight selected search item
-        if (state.search) searchView.hightlightSelected(id);
+        // Highlight selected search item
+        if (state.search) searchView.highlightSelected(id);
 
         // Create new recipe object
         state.recipe = new Recipe(id);
@@ -91,6 +91,7 @@ const controlRecipe = async () => {
             clearLoader();
             recipeView.renderRecipe(state.recipe);
         } catch (err) {
+            console.log(err);
             alert('Error processing recipe!');
         }
 
@@ -130,7 +131,7 @@ elements.shopping.addEventListener('click', e => {
     // Handle the count update
     } else if (e.target.matches('.shopping__count-value')) {
         const val = parseFloat(e.target.value, 10);
-        state.list.updateCount(id,val);
+        state.list.updateCount(id, val);
     }
 
 });
@@ -148,11 +149,11 @@ elements.recipe.addEventListener('click', e => {
         // Increase button is clicked
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
-    } else if (e.target.matches('.recipe__btn-add. .recipe__btn--add *')) {
+    } else if (e.target.matches('.recipe__btn--add, .recipe__btn--add *')) {
         controlList();
     }
     // console.log(state.recipe);
 });
 
 // const l = new List();
-window.l = new List();
+// window.l = new List();
