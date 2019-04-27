@@ -16,7 +16,7 @@ export default class List {
         return item;
     }
 
-    deleteItem (id) {
+    deleteItem(id) {
         const index = this.items.findIndex(el => el.id === id);
         // [2,4,8] splice(1(index), 2(how many elements we want to take)) -> returns [4,8], original array is [2]
         // [2,4,8] slice(1(index), 2(end index)) -> returns 4, original array is [2,4,8]
