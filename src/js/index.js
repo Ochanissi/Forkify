@@ -143,7 +143,9 @@ elements.shopping.addEventListener('click', e => {
 
 // LIKE CONTROLLER
 
+// TESTING
 state.likes = new Likes();
+// likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 
 const controlLike = () => {
@@ -161,9 +163,10 @@ const controlLike = () => {
         );
 
         // Toggle the like button
-            likesView.toggleLikeBtn(true);
+        likesView.toggleLikeBtn(true);
         // Add like to the UI list
-        console.log(state.likes);
+        likesView.renderLike(newLike);
+        // console.log(state.likes);
 
     // User HAS likes current recipe
     
@@ -174,8 +177,10 @@ const controlLike = () => {
         likesView.toggleLikeBtn(false);
 
         // Remove like from the UI list
-        console.log(state.likes);
+        likesView.deleteLike(currentID);
+        // console.log(state.likes);
     }
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
 
@@ -183,7 +188,7 @@ const controlLike = () => {
 elements.recipe.addEventListener('click', e => {
     if (e.target.matches('.btn-decrease, .btn-decrease *')) {
         // Decrease button is clicked
-        if(state.recipe.servings > 1) {
+        if (state.recipe.servings > 1) {
             state.recipe.updateServings('dec');
             recipeView.updateServingsIngredients(state.recipe);
         }
