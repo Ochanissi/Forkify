@@ -14,7 +14,6 @@ import { elements, renderLoader, clearLoader } from './views/base';
 // Shopping List Object
 // Liked Recipes
 const state = {};
-window.state = state;
 
 // SEARCH CONTROLLER
 const controlSearch = async () => {
@@ -212,6 +211,3 @@ elements.recipe.addEventListener('click', e => {
     }
     // console.log(state.recipe);
 });
-
-// const l = new List();
-// window.l = new List();
