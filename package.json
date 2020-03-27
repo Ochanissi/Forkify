@@ -2,7 +2,7 @@
   "name": "Forkify",
   "version": "1.0.0",
   "description": "Forkify Project",
-  "main": "index.js",
+  "main": "/dist/index.html",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
